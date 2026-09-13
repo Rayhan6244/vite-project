@@ -8,11 +8,11 @@ export default {
         body: ["Inter", "system-ui", "sans-serif"],
       },
       colors: {
-        ink: "#12101A",
-        surface: "#0F0D16",
-        panel: "#17131F",
-        line: "#2A2436",
-        muted: "#8C87A0",
+        ink: "#15121F",
+        surface: "#FFFFFF",
+        panel: "#FAFAFC",
+        line: "#E7E5EF",
+        muted: "#6B6780",
         brand: {
           orange: "#FF7A45",
           pink: "#FF3D8A",

@@ -4,11 +4,11 @@ export default function Hero() {
       id="home"
       className="relative overflow-hidden border-b border-line/60"
     >
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-96 w-[42rem] -translate-x-1/2 rounded-full bg-brand-gradient opacity-[0.12] blur-3xl" />
+      <div className="pointer-events-none absolute -top-40 left-1/2 h-96 w-[42rem] -translate-x-1/2 rounded-full bg-brand-gradient opacity-[0.18] blur-3xl" />
 
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <h1 className="font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl lg:text-6xl">
+          <h1 className="font-display text-4xl font-bold leading-[1.1] text-ink sm:text-5xl lg:text-6xl">
             Build Your Ideal
             <br />
             <span className="text-gradient">Development Stack</span>
@@ -27,7 +27,7 @@ export default function Hero() {
             </a>
             <a
               href="#about"
-              className="rounded-full border border-line px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-slate-500 hover:text-white"
+              className="rounded-full border border-line px-6 py-3 text-sm font-semibold text-ink transition hover:border-slate-400 hover:bg-panel"
             >
               Learn More
             </a>

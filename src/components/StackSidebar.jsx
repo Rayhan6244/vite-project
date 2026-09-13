@@ -3,7 +3,7 @@ export default function StackSidebar({ stack, onRemove, onRemoveAll }) {
     <aside className="h-fit rounded-2xl border border-line bg-panel p-5 xl:sticky xl:top-24">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="font-display text-base font-semibold text-white">
+          <h3 className="font-display text-base font-semibold text-ink">
             Your Stack
           </h3>
           <p className="mt-0.5 text-xs text-muted" aria-live="polite">
@@ -13,7 +13,7 @@ export default function StackSidebar({ stack, onRemove, onRemoveAll }) {
         {stack.length > 0 && (
           <button
             onClick={onRemoveAll}
-            className="text-xs font-medium text-rose-300 transition hover:text-rose-200"
+            className="text-xs font-medium text-rose-600 transition hover:text-rose-700"
           >
             Remove All
           </button>
@@ -32,9 +32,9 @@ export default function StackSidebar({ stack, onRemove, onRemoveAll }) {
           stack.map((tech) => (
             <div
               key={tech.id}
-              className="flex items-center gap-3 rounded-xl border border-line bg-white/5 px-3 py-2.5"
+              className="flex items-center gap-3 rounded-xl border border-line bg-white px-3 py-2.5"
             >
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-ink/5">
                 <img
                   src={tech.icon}
                   alt=""
@@ -45,7 +45,7 @@ export default function StackSidebar({ stack, onRemove, onRemoveAll }) {
                 />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-medium text-white">
+                <p className="truncate text-sm font-medium text-ink">
                   {tech.name}
                 </p>
                 <p className="truncate text-xs text-muted">{tech.category}</p>
@@ -53,7 +53,7 @@ export default function StackSidebar({ stack, onRemove, onRemoveAll }) {
               <button
                 onClick={() => onRemove(tech.id)}
                 aria-label={`Remove ${tech.name} from stack`}
-                className="grid h-6 w-6 shrink-0 place-items-center rounded-md text-muted transition hover:bg-rose-500/10 hover:text-rose-300"
+                className="grid h-6 w-6 shrink-0 place-items-center rounded-md text-muted transition hover:bg-rose-50 hover:text-rose-600"
               >
                 ✕
               </button>

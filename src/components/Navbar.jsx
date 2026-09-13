@@ -10,7 +10,7 @@ export default function Navbar() {
       <nav className="mx-auto grid max-w-7xl grid-cols-3 items-center px-5 py-4 md:flex md:justify-between md:px-8">
         {/* Mobile: hamburger (left only, hidden on desktop) */}
         <button
-          className="grid h-9 w-9 place-items-center justify-self-start rounded-lg border border-line text-slate-200 md:hidden"
+          className="grid h-9 w-9 place-items-center justify-self-start rounded-lg border border-line text-ink md:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -42,7 +42,7 @@ export default function Navbar() {
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-gradient font-display text-sm font-bold text-white">
             DS
           </span>
-          <span className="font-display text-lg font-bold text-white">
+          <span className="font-display text-lg font-bold text-ink">
             Dev <span className="text-gradient">Stack</span>
           </span>
         </a>
@@ -53,7 +53,7 @@ export default function Navbar() {
             <li key={link}>
               <a
                 href={`#${link.toLowerCase()}`}
-                className="text-sm font-medium text-muted transition hover:text-white"
+                className="text-sm font-medium text-muted transition hover:text-ink"
               >
                 {link}
               </a>
@@ -63,10 +63,10 @@ export default function Navbar() {
 
         {/* Right: auth buttons (always visible) */}
         <div className="flex items-center justify-self-end gap-2.5 md:gap-5">
-          <button className="hidden text-sm font-medium text-slate-200 transition hover:text-white md:block">
+          <button className="hidden text-sm font-medium text-ink transition hover:text-ink md:block">
             Sign In
           </button>
-          <button className="text-xs font-medium text-slate-200 transition hover:text-white md:hidden">
+          <button className="text-xs font-medium text-ink transition hover:text-ink md:hidden">
             Sign In
           </button>
           <button className="rounded-full bg-brand-gradient px-3.5 py-1.5 text-xs font-semibold text-white shadow-lg shadow-brand-pink/20 transition hover:brightness-110 md:px-5 md:py-2 md:text-sm">
@@ -84,7 +84,7 @@ export default function Navbar() {
                 <a
                   href={`#${link.toLowerCase()}`}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-2 py-2.5 text-sm font-medium text-slate-200 hover:bg-panel"
+                  className="block rounded-lg px-2 py-2.5 text-sm font-medium text-ink hover:bg-panel"
                 >
                   {link}
                 </a>
@@ -92,7 +92,7 @@ export default function Navbar() {
             ))}
           </ul>
           <div className="mt-3 flex items-center gap-3 border-t border-line/70 pt-4">
-            <button className="flex-1 rounded-full border border-line py-2 text-sm font-medium text-slate-200">
+            <button className="flex-1 rounded-full border border-line py-2 text-sm font-medium text-ink">
               Sign In
             </button>
             <button className="flex-1 rounded-full bg-brand-gradient py-2 text-sm font-semibold text-white">

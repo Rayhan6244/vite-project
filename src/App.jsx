@@ -43,7 +43,7 @@ export default function App() {
 
       <section id="technologies" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
         <div className="mb-10">
-          <h2 className="font-display text-3xl font-bold text-white sm:text-4xl">
+          <h2 className="font-display text-3xl font-bold text-ink sm:text-4xl">
             Explore the <span className="text-gradient">Technologies</span>
           </h2>
           <p className="mt-2 max-w-xl text-muted">
@@ -73,7 +73,7 @@ export default function App() {
 
       <ToastContainer
         position="bottom-right"
-        theme="dark"
+        theme="light"
         autoClose={2500}
         newestOnTop
       />

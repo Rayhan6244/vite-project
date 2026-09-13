@@ -22,7 +22,7 @@ export default function Footer() {
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-gradient font-display text-xs font-bold text-white">
               DS
             </span>
-            <span className="font-display text-base font-bold text-white">
+            <span className="font-display text-base font-bold text-ink">
               Dev Stack
             </span>
           </a>
@@ -45,7 +45,7 @@ export default function Footer() {
 
         {LINK_GROUPS.map((group) => (
           <div key={group.title}>
-            <h4 className="font-display text-sm font-semibold text-white">
+            <h4 className="font-display text-sm font-semibold text-ink">
               {group.title}
             </h4>
             <ul className="mt-4 flex flex-col gap-2.5">
@@ -53,7 +53,7 @@ export default function Footer() {
                 <li key={link}>
                   <a
                     href="#"
-                    className="text-sm text-muted transition hover:text-white"
+                    className="text-sm text-muted transition hover:text-ink"
                   >
                     {link}
                   </a>
@@ -68,10 +68,10 @@ export default function Footer() {
         <div className="mx-auto flex max-w-7xl flex-col-reverse items-center justify-between gap-4 px-5 py-6 text-xs text-muted md:flex-row md:px-8">
           <p>© {new Date().getFullYear()} Dev Stack. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <a href="#" className="transition hover:text-white">
+            <a href="#" className="transition hover:text-ink">
               Privacy
             </a>
-            <a href="#" className="transition hover:text-white">
+            <a href="#" className="transition hover:text-ink">
               Terms
             </a>
           </div>
@@ -86,7 +86,7 @@ function SocialLink({ label, children }) {
     <a
       href="#"
       aria-label={label}
-      className="grid h-8 w-8 place-items-center rounded-full border border-line text-muted transition hover:border-slate-500 hover:text-white"
+      className="grid h-8 w-8 place-items-center rounded-full border border-line text-muted transition hover:border-slate-400 hover:text-ink"
     >
       <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
         {children}
