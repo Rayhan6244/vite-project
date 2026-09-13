@@ -1,122 +1,82 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useMemo, useState } from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Loader from "./components/Loader";
+import TechGrid from "./components/TechGrid";
+import StackSidebar from "./components/StackSidebar";
+import Footer from "./components/Footer";
+import useTechnologies from "./hooks/useTechnologies";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const { technologies, loading } = useTechnologies();
+  const [stack, setStack] = useState([]);
+
+  const stackIds = useMemo(() => new Set(stack.map((t) => t.id)), [stack]);
+
+  function handleAdd(tech) {
+    if (stackIds.has(tech.id)) {
+      toast.warn(`${tech.name} is already in your stack.`);
+      return;
+    }
+    setStack((prev) => [...prev, tech]);
+    toast.success(`${tech.name} added to your stack.`);
+  }
+
+  function handleRemove(id) {
+    const removed = stack.find((t) => t.id === id);
+    setStack((prev) => prev.filter((t) => t.id !== id));
+    if (removed) toast.info(`${removed.name} removed from your stack.`);
+  }
+
+  function handleRemoveAll() {
+    if (stack.length === 0) return;
+    setStack([]);
+    toast.info("Your stack has been cleared.");
+  }
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+    <div className="min-h-screen bg-surface">
+      <Navbar />
+      <Hero />
+
+      <section id="technologies" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
+        <div className="mb-10">
+          <h2 className="font-display text-3xl font-bold text-white sm:text-4xl">
+            Explore the <span className="text-gradient">Technologies</span>
+          </h2>
+          <p className="mt-2 max-w-xl text-muted">
+            Pick one technology per category to build your ideal stack.
           </p>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+
+        {loading ? (
+          <Loader />
+        ) : (
+          <div className="grid grid-cols-1 gap-8 xl:grid-cols-[1fr_320px]">
+            <TechGrid
+              technologies={technologies}
+              stackIds={stackIds}
+              onAdd={handleAdd}
+            />
+            <StackSidebar
+              stack={stack}
+              onRemove={handleRemove}
+              onRemoveAll={handleRemoveAll}
+            />
+          </div>
+        )}
       </section>
 
-      <div className="ticks"></div>
+      <Footer />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      <ToastContainer
+        position="bottom-right"
+        theme="dark"
+        autoClose={2500}
+        newestOnTop
+      />
+    </div>
+  );
 }
-
-export default App
