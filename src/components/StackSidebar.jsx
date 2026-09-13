@@ -6,7 +6,7 @@ export default function StackSidebar({ stack, onRemove, onRemoveAll }) {
           <h3 className="font-display text-base font-semibold text-white">
             Your Stack
           </h3>
-          <p className="mt-0.5 text-xs text-muted">
+          <p className="mt-0.5 text-xs text-muted" aria-live="polite">
             {stack.length} Technology Selected
           </p>
         </div>
