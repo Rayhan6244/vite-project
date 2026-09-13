@@ -8,6 +8,9 @@
   html {
     scroll-behavior: smooth;
   }
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
   body {
     @apply bg-surface text-slate-200 font-body antialiased;
   }
