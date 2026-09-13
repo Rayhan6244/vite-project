@@ -1,7 +1,8 @@
 {
   "name": "dev-stack-builder",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Build your ideal development stack — compare frontend, backend, database, and tooling options side by side.",
   "type": "module",
   "scripts": {
     "dev": "vite",
