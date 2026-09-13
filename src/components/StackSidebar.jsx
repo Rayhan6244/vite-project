@@ -38,7 +38,7 @@ export default function StackSidebar({ stack, onRemove, onRemoveAll }) {
                 <img
                   src={tech.icon}
                   alt=""
-                  className="h-4.5 w-4.5"
+                  className="h-4 w-4"
                   onError={(e) => {
                     e.currentTarget.style.display = "none";
                   }}
